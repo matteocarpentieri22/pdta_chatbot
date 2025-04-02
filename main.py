@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # Set the title of the Streamlit app
-st.title("💬 Streamlit Chatbot with OpenAI Agents SDK")
+st.title("🏥 Assistente PDTA - Supporto all'Interpretazione")
 
 # Function to initialize the agent, ensuring it's done only once
 @st.cache_resource

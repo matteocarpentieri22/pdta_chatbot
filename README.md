@@ -1,86 +1,66 @@
-# OpenAI Agents SDK Chatbot Template with Streamlit
+# PDTA Assistant - Supporto all'Interpretazione dei PDTA
 
-This template provides a starting point for building a conversational chatbot using the OpenAI Agents SDK and Streamlit, featuring conversation history and streaming responses
+Un assistente conversazionale progettato per aiutare i professionisti sanitari nell'interpretazione dei Percorsi Diagnostico Terapeutici Assistenziali (PDTA) per le lesioni polmonari.
 
-## Features
+## Funzionalità
 
-- 🤖 Conversational chatbot powered by OpenAI's Agents SDK
-- 💬 Interactive chat interface using Streamlit
-- 📝 Conversation history management
-- 🔄 Persistent chat sessions
-- 🎨 Clean and modern UI
-- ⚡ Real-time streaming responses
-- ⚙️ Configurable response mode (streaming/non-streaming)
+- 🏥 Assistenza nell'interpretazione dei PDTA per lesioni polmonari
+- 💬 Interfaccia di chat interattiva
+- 📝 Gestione della cronologia delle conversazioni
+- 🔄 Sessioni di chat persistenti
+- ⚡ Risposte in tempo reale
 
-## Prerequisites
+## Prerequisiti
 
 - OpenAI API key
 
-## Installation
+## Installazione
 
-1. Clone this repository:
+1. Clona il repository:
 ```bash
-git clone <your-repository-url>
+git clone https://gitlab.com/laifereply/pdta-agent.git
 cd pdta-agent
 ```
 
-2. Create and activate a virtual environment:
+2. Crea e attiva un ambiente virtuale:
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # On Windows, use: .venv\Scripts\activate
+source .venv/bin/activate  # Su Windows, usa: .venv\Scripts\activate
 ```
 
-3. Install the required packages:
+3. Installa i pacchetti richiesti:
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Copy the `.env.example` file to `.env` and add your OpenAI API key:
+4. Copia il file `.env.example` in `.env` e aggiungi la tua OpenAI API key:
 ```bash
 cp .env.example .env
 ```
 
-Then edit the `.env` file with your OpenAI API key:
+Modifica il file `.env` con la tua OpenAI API key:
 ```
 OPENAI_API_KEY=your-api-key-here
 ```
 
-## Usage
+## Utilizzo
 
-1. Start the Streamlit application:
+1. Avvia l'applicazione Streamlit:
 ```bash
 streamlit run main.py
 ```
 
-2. Open your web browser and navigate to the URL shown in the terminal (typically http://localhost:8501)
+2. Apri il browser web e naviga all'URL mostrato nel terminale (tipicamente http://localhost:8501)
 
-3. Configure your preferences:
-   - Use the "Use Streaming Response" toggle to enable/disable streaming responses
-   - Use the "Clear Chat History" button to reset the conversation
+3. Inizia una conversazione con l'assistente fornendo:
+   - Sintomatologia del paziente
+   - Fattori di rischio
+   - Indagini diagnostiche effettuate
+   - Risultati delle indagini
 
+4. L'assistente ti aiuterà a interpretare il PDTA in base al contesto clinico fornito
 
-4. Start chatting with the AI agent!
-
-## Response Modes
-
-The chatbot supports two response modes:
-
-### Streaming Mode (Default)
-- Responses appear in real-time as they're generated
-- See the agent's thinking process as it happens
-- More interactive and engaging experience
-- Indicated by a blinking cursor (▌) while generating
-
-### Non-Streaming Mode
-- Responses appear all at once when complete
-- Shows "Thinking..." while generating
-- More traditional chat experience
-- Useful for scenarios where you prefer complete responses
-
-You can switch between modes at any time using the "Use Streaming Response" toggle in the sidebar.
-
-
-## Project Structure
+## Struttura del Progetto
 
 ```
 pdta-agent/
@@ -94,19 +74,22 @@ pdta-agent/
 └── README.md            # This file
 ```
 
+## Configurazione
 
-## Customization
+Puoi personalizzare il comportamento dell'assistente modificando il file `agent/agent.py` e il file `agent/prompts/agent_instructions.py`
 
-### Modifying the Agent
+## Modalità di Risposta
 
-You can customize the agent's behavior by modifying the `agent/agent.py` file. This includes:
-- Changing the agent's instructions
-- Adding custom tools and capabilities
-- Modifying the conversation flow
+L'assistente supporta due modalità di risposta:
 
-### Styling the UI
+### Modalità Streaming (Predefinita)
+- Le risposte appaiono in tempo reale mentre vengono generate
+- Esperienza più interattiva e coinvolgente
+- Indicata da un cursore lampeggiante (▌) durante la generazione
 
-The Streamlit UI can be customized by modifying the `main.py` file. You can:
-- Change the theme
-- Add custom components
-- Modify the layout
+### Modalità Non-Streaming
+- Le risposte appaiono tutte insieme una volta completate
+- Mostra "Thinking..." durante la generazione
+- Utile quando si preferiscono risposte complete
+
+È possibile passare tra le modalità in qualsiasi momento utilizzando il toggle "Use Streaming Response" nella barra laterale.
