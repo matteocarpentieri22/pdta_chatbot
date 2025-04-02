@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # Set the title of the Streamlit app
-st.title("🏥 Assistente PDTA - Supporto all'Interpretazione")
+st.title("🏥 Assistente Clinico per PDTA Polmonari")
 
 # Function to initialize the agent, ensuring it's done only once
 @st.cache_resource
