@@ -6,12 +6,15 @@ from dotenv import load_dotenv
 import logging
 from typing import AsyncIterator
 
+from agents import Agent, Runner, trace
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Import necessary components from the openai-agents SDK
-from agents import Agent, Runner, trace
+from .prompts.agent_instructions import AGENT_INSTRUCTIONS, PDTA_INSTRUCTIONS, pdta_text
+
+
 
 class ConversationalAgent:
     """
@@ -30,7 +33,7 @@ class ConversationalAgent:
             raise ValueError("OPENAI_API_KEY not found in environment variables. Please set it in your .env file.")
 
         agent_name = "ConversationalAgent"
-        agent_instructions = "You are a professional and effective conversational assistant. Provide precise and relevant responses, maintaining a friendly tone. Match the user's vibes."
+        agent_instructions = AGENT_INSTRUCTIONS + PDTA_INSTRUCTIONS.format(pdta_text=pdta_text)
         agent_model = "gpt-4o-mini"
 
         self.agent = Agent(
