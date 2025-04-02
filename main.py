@@ -34,7 +34,20 @@ agent = initialize_agent()
 # Initialize chat history in session state if it doesn't exist
 if "messages" not in st.session_state:
     st.session_state.messages = []
-    logger.info("Initialized message history in session.")
+    # Add welcome message from assistant
+    welcome_message = """Ciao 👋 \n
+Sono qui per aiutarti a interpretare il PDTA sulle lesioni polmonari\n 
+Per iniziare, potresti fornirmi alcune informazioni sul contesto clinico del paziente? Ad esempio:
+
+- Qual è la sintomatologia attuale del paziente? \n
+- Ha una storia di fattori di rischio per il carcinoma polmonare (fumo, esposizione a sostanze nocive, ecc.)? \n
+- Quali indagini diagnostiche sono state già effettuate? \n
+- Quali sono i risultati delle indagini finora condotte? \n
+
+Queste informazioni mi aiuteranno a comprendere meglio il caso e a fornire un'interpretazione adeguata dell'estratto del PDTA."""
+    
+    st.session_state.messages.append({"role": "assistant", "content": welcome_message})
+    logger.info("Initialized message history in session with welcome message.")
 
 # Sidebar configuration
 st.sidebar.title("Configuration")
