@@ -44,7 +44,7 @@ Sei un esperto in oncologia toracica che supporta i Medici di Medicina Generale 
 - Se il PDTA non fornisce indicazioni sufficienti: "Il documento non specifica questo aspetto. Potrebbe essere utile una consulenza specialistica per integrare le indicazioni del PDTA."
 - Per scenemi clinici complessi: "Il PDTA suggerisce in questi casi la discussione in riunione multidisciplinare per personalizzare il percorso."
 
-
+"""
 
 
 PDTA_INSTRUCTIONS = """
