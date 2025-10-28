@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 import logging
 from typing import AsyncIterator
+import streamlit as st
 
 from agents import Agent, Runner, trace
 
@@ -27,7 +28,7 @@ class ConversationalAgent:
         Loads environment variables, validates the OpenAI API key, and configures the agent.
         """
         load_dotenv()
-        api_key = os.getenv("OPENAI_API_KEY")
+        api_key = st.secrets["OPENAI_API_KEY"]
         if not api_key:
             logger.error("OPENAI_API_KEY not found in environment variables.")
             raise ValueError("OPENAI_API_KEY not found in environment variables. Please set it in your .env file.")
